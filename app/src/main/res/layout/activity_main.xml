@@ -17,9 +17,29 @@
         android:hint="Hello World!" />
 
     <Button
+        android:id="@+id/SleeperButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/EditText"
         android:text="I'm just a button : ' ("
         android:onClick="sleeperWaked"/>
+    <CheckBox
+        android:id="@+id/FirstCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SleeperButton"
+        android:text="@string/FirstCheckBox"/>
+    <CheckBox
+        android:id="@+id/SecondCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/FirstCheckBox"
+        android:text="@string/SecondCheckBox"/>
+    <CheckBox
+        android:id="@+id/ThirdCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SecondCheckBox"
+        android:text="@string/ThirdCheckBox"/>
+
 </RelativeLayout>
