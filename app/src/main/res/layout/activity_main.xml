@@ -41,12 +41,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/SecondCheckBox"
         android:text="@string/ThirdCheckBox"/>
-    <Switch
+    <ToggleButton
         android:id="@+id/WorkSwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ThirdCheckBox"
         android:text="@string/SwitchWork"
-        android:paddingRight="20dp"/>
+        android:paddingRight="20dp"
+        android:onClick=""/>
 
 </RelativeLayout>
