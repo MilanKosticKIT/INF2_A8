@@ -94,4 +94,5 @@
     <string name="FirstCheckBox">Sleeped well?</string>
     <string name="SecondCheckBox">Have you taken a shower?</string>
     <string name="ThirdCheckBox">Was breakfast good enough?</string>
+    <string name="SwitchWork">Do you go to work today?</string>
 </resources>
