@@ -1,8 +1,11 @@
 package com.uni.admin.aufgabe_8;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Switch;
+import android.widget.ToggleButton;
 
 public class MainActivity extends Activity {
 
@@ -14,10 +17,13 @@ public class MainActivity extends Activity {
 
     /**
      * Called when the sleeping button was clicked
+     *
      * @param view
      */
-    public void sleeperWaked(View view){
+    public void sleeperWaked(View view) {
         //Send messages: "Let me sleep"
+        Intent intent = new Intent(this, SleepMessageActivity.class);
+        startActivity(intent);
     }
 
     /*
@@ -26,4 +32,5 @@ public class MainActivity extends Activity {
 
         }
     };*/
+
 }
