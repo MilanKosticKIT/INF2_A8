@@ -1,7 +1,7 @@
 package com.uni.admin.aufgabe_8;
 
 /**
- * Created by admin on 06.01.18.
+ * Created by MK on 06.01.18.
  */
 
 public class Task {
