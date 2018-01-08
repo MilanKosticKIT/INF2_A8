@@ -8,8 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
+
+    private ListView lvTasks;
+    private TaskAdapter taskAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +23,18 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        lvTasks = (ListView) findViewById(R.id.lvTasks);
+        ArrayList<Task> aTasks = new ArrayList<Task>();
+        taskAdapter = new TaskAdapter(this, aTasks);
+        lvTasks.setAdapter(taskAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here you add a new Task", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                //Snackbar.make(view, "Here you add a new Task", Snackbar.LENGTH_LONG)
+                //        .setAction("Action", null).show();
             }
         });
     }
