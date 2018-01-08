@@ -1,6 +1,8 @@
 package com.uni.admin.aufgabe_8;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -40,16 +42,29 @@ public class TaskDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
+            String titleKey = "R.string.";// + getString();
+            String defaultTitle = getResources().getString(R.string.TitleDefault);
+            String title = sharedPref.getString(titleKey, defaultTitle);
+
             mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+
+            String saveTitle = "R.string.TitleDefault";// + mItem.content;
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString(getString(R.string.TitleDefault), mItem.content);
+            editor.commit();
+
+
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.content);
+                appBarLayout.setTitle(sharedPref.getString(getString(R.string.TitleDefault), "Bad"));//mItem.content);
             }
         }
     }
@@ -61,7 +76,8 @@ public class TaskDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.task_detail)).setText(mItem.details);
+            int id = 3;//R.id.task_detail;
+            ((TextView) rootView.findViewById(R.id.task_detail)).setText(getString(id));
         }
 
         return rootView;
